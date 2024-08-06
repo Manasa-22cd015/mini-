@@ -1,1 +1,81 @@
 
+<%- include('layout') %>
+
+<h2>Add New Applicant</h2>
+<form action="/add" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" name="age" required>
+    </div>
+    <div class="form-group">
+        <label for="course">Course:</label>
+        <input type="text" class="form-control" id="course" name="course" required>
+    </div>
+    <div class="form-group">
+        <label for="score">Score:</label>
+        <input type="number" class="form-control" id="score" name="score" required>
+    </div>
+    <div class="form-group">
+        <label for="marks10th">10th Marks:</label>
+        <input type="number" class="form-control" id="marks10th" name="marks10th" required>
+    </div>
+    <div class="form-group">
+        <label for="marksPUC">PUC Marks:</label>
+        <input type="number" class="form-control" id="marksPUC" name="marksPUC" required>
+    </div>
+    <div class="form-group">
+        <label for="fatherName">Father's Name:</label>
+        <input type="text" class="form-control" id="fatherName" name="fatherName" required>
+    </div>
+    <div class="form-group">
+        <label for="motherName">Mother's Name:</label>
+        <input type="text" class="form-control" id="motherName" name="motherName" required>
+    </div>
+    <div class="form-group">
+        <label for="fatherMobile">Father's Mobile Number:</label>
+        <input type="text" class="form-control" id="fatherMobile" name="fatherMobile" required>
+    </div>
+    <div class="form-group">
+        <label for="photo">Student Photo:</label>
+        <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Applicant</button>
+</form>
+
+<h2 class="mt-5">Applicants List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Score</th>
+            <th>10th Marks</th>
+            <th>PUC Marks</th>
+            <th>Father's Name</th>
+            <th>Mother's Name</th>
+            <th>Father's Mobile</th>
+            <th>Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% applicants.forEach(applicant => { %>
+            <tr>
+                <td><%= applicant.name %></td>
+                <td><%= applicant.age %></td>
+                <td><%= applicant.course %></td>
+                <td><%= applicant.score %></td>
+                <td><%= applicant.marks10th %></td>
+                <td><%= applicant.marksPUC %></td>
+                <td><%= applicant.fatherName %></td>
+                <td><%= applicant.motherName %></td>
+                <td><%= applicant.fatherMobile %></td>
+                <td><img src="<%= applicant.photo %>" alt="Photo" class="photo-box img-fluid"></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table
